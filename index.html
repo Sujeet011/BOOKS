@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Bookstore</title>
+<style>
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgb(244,124,136);
+background: -moz-radial-gradient(circle, rgba(244,124,136,0.7456232492997199) 0%, rgba(30,244,231,0.7372198879551821) 100%);
+background: -webkit-radial-gradient(circle, rgba(244,124,136,0.7456232492997199) 0%, rgba(30,244,231,0.7372198879551821) 100%);
+background: radial-gradient(circle, rgba(244,124,136,0.7456232492997199) 0%, rgba(30,244,231,0.7372198879551821) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f47c88",endColorstr="#1ef4e7",GradientType=1);;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    text-align: center;
+    text-decoration: underline;
+    color: rgb(0, 0, 0);
+    background: rgb(2,0,36);
+background: -moz-linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 24%, rgba(0,212,255,1) 100%);
+background: -webkit-linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 24%, rgba(0,212,255,1) 100%);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 24%, rgba(0,212,255,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#00d4ff",GradientType=1);
+  }
+
+  .book {
+    border: 1px solid #080000;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+  }
+
+  .book h2 {
+    margin-top: 0;
+  }
+
+  .book p {
+    margin: 5px 0;
+  }
+
+  .book span {
+    font-weight: bold;
+    color: red;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Online Bookstore</h1>
+
+  <div class="book" id="book1">
+    <h2>Book 1</h2>
+    <p>Title: <span id="book1-title"></span></p>
+    <p>Author: <span id="book1-author"></span></p>
+    <p>Genre: <span id="book1-genre"></span></p>
+    <p>Price: $<span id="book1-price"></span></p>
+  </div>
+
+  <div class="book" id="book2">
+    <h2>Book 2</h2>
+    <p>Title: <span id="book2-title"></span></p>
+    <p>Author: <span id="book2-author"></span></p>
+    <p>Genre: <span id="book2-genre"></span></p>
+    <p>Price: $<span id="book2-price"></span></p>
+  </div>
+</div>
+
+<script>
+
+  function Author(name, birthYear, nationality) {
+    this.name = name;
+    this.birthYear = birthYear;
+    this.nationality = nationality;
+  }
+
+  function Book(title, author, genre, price) {
+    this.title = title;
+    this.author = author;
+    this.genre = genre;
+    this.price = price;
+  }
+
+  Book.prototype.getBookInfo = function() {
+    console.log(`Title: ${this.title}`);
+    console.log(`Author: ${this.author.name}`);
+    console.log(`Genre: ${this.genre}`);
+    console.log(`Price: $${this.price}`);
+  }
+
+  const author1 = new Author("J.K. Rowling", 1965, "British");
+  const author2 = new Author("George Orwell", 1903, "British");
+
+  const book1 = new Book("Harry Potter and the Philosopher's Stone", author1, "Fantasy", 20);
+  const book2 = new Book("1984", author2, "Dystopian", 15);
+
+  document.getElementById("book1-title").textContent = book1.title;
+  document.getElementById("book1-author").textContent = book1.author.name;
+  document.getElementById("book1-genre").textContent = book1.genre;
+  document.getElementById("book1-price").textContent = book1.price;
+
+  document.getElementById("book2-title").textContent = book2.title;
+  document.getElementById("book2-author").textContent = book2.author.name;
+  document.getElementById("book2-genre").textContent = book2.genre;
+  document.getElementById("book2-price").textContent = book2.price;
+</script>
+
+</body>
+</html>
